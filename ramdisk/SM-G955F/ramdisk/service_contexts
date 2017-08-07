@@ -146,7 +146,7 @@ wifiscanner                               u:object_r:wifiscanner_service:s0
 wifi                                      u:object_r:wifi_service:s0
 window                                    u:object_r:window_service:s0
 *                                         u:object_r:default_android_service:s0
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "vendor/samsung/system/sepolicy/BSP/qcom_bsp/common/service_contexts"
 # Copyright (c) 2015-2016 Dolby Laboratories, Inc. All rights reserved.
@@ -216,7 +216,7 @@ sms-sec                                        u:object_r:radio_service:s0
 regionalization                                       u:object_r:regionalization_service:s0
 audio.vrservice                                       u:object_r:audioserver_service:s0
 
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "vendor/samsung/system/sepolicy/BSP/qcom_bsp/msm8996/service_contexts"
 # Copyright (c) 2015, The Linux Foundation. All rights reserved.
@@ -247,7 +247,7 @@ audio.vrservice                                       u:object_r:audioserver_ser
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 android.apps.IQvopService             u:object_r:iqvop_service:s0
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "vendor/samsung/system/sepolicy/BSP/marvell_bsp/service_contexts"
 # for the binder services
@@ -260,7 +260,7 @@ FMRadioService		u:object_r:FMRadiod_service:s0
 #SEC changed: codecIPCservice		u:object_r:system_service:s0
 codecIPCservice		u:object_r:codecIPC_server_service:s0
 
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "vendor/samsung/system/sepolicy/BSP/sprd_bsp/service_contexts"
 atchannel                                 u:object_r:radio_service:s0
@@ -269,7 +269,7 @@ sprdsimphonebook                          u:object_r:radio_service:s0
 sprd_phone                                u:object_r:radio_service:s0
 security                                  u:object_r:system_service:s0
 board_score                               u:object_r:system_service:s0
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
 #line 1 "vendor/samsung/system/sepolicy/service_contexts"
 auditlog                                    u:object_r:auditlog_service:s0
@@ -407,6 +407,13 @@ gamemanager                                 u:object_r:gamemanager_service:s0
 generic_vpn_policy                          u:object_r:EDM_Policy_service:s0
 genericssoservice                           u:object_r:genericsso_service:s0
 geofencing                                  u:object_r:geofencing_service:s0
+
+# GameSDKService
+# http://mobilerndhub.sec.samsung.net/hub/site/seandroid/board/N_review_request/view/22142783
+# requester : steeze.kim
+# GameSDKService
+gamesdk                                     u:object_r:gamesdk_service:s0
+
 # SEA_site_N_OS #33, name changed (nfccontroller -> gsmaapi)
 gsmaapi                                     u:object_r:nfc_service:s0
 harmony_eas_service                         u:object_r:harmony_eas_service:s0
@@ -567,6 +574,5 @@ directpeninputmanagerservicerestricted      u:object_r:directpeninputmanager_ser
 directpeninputmanagerservicerestricted[0-9] u:object_r:directpeninputmanager_service:s0
 directpeninputmanagerservicerestricted10    u:object_r:directpeninputmanager_service:s0
 WlanDutService                              u:object_r:wlandutservice_service:s0
-
-#line 1 "out/target/product/dream2lte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
+#line 1 "out/target/product/dreamlte/obj/ETC/sectxfile_nl_intermediates/sectxfile_nl"
 
