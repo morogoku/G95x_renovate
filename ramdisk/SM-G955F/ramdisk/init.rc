@@ -1389,8 +1389,7 @@ on property:security.edmaudit=true
     start edmaudit
 
 on property:security.edmaudit=false
-    stop edmaudit
-    
+    stop edmaudit    
 ## WTL_EDM_END
 
 service kap_enable /sbin/knox_changer -e
