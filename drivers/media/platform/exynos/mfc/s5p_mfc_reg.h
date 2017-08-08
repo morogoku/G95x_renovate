@@ -22,8 +22,6 @@
 #define MFC_READL(offset)		readl(dev->regs_base + (offset))
 #define MFC_WRITEL(data, offset)	writel((data), dev->regs_base + (offset))
 
-#define MFC_MMU0_READL(offset)		readl(dev->sysmmu0_base + (offset))
-#define MFC_MMU1_READL(offset)		readl(dev->sysmmu1_base + (offset))
 
 /* version */
 #define s5p_mfc_get_fimv_info()		((MFC_READL(S5P_FIMV_FW_VERSION)		\

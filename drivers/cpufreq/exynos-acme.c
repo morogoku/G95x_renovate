@@ -1305,97 +1305,11 @@ static __init int get_jig_status(char *arg)
 early_param("jig", get_jig_status);
 #endif
 
-static __init void set_boot_qos(struct exynos_cpufreq_domain *domain,
-					struct device_node *dn)
-{
-	unsigned int boot_qos, val;
-	int freq;
-
-	/*
-	 * Basically booting pm_qos is set to max frequency of domain.
-	 * But if pm_qos-booting exists in device tree,
-	 * booting pm_qos is selected to smaller one
-	 * between max frequency of domain and the value defined in device tree.
-	 */
-	boot_qos = domain->max_freq;
-	if (!of_property_read_u32(dn, "pm_qos-booting", &val))
-		boot_qos = min(boot_qos, val);
-
-	/*
-	 * Before setting booting pm_qos, ACME driver check thermal condition.
-	 * If necessary, booting pm_qos should be set to frequency
-	 * that considering thermal condition.
-	 * exynos_earlytmu_get_boot_freq function return this frequency.
-	 * 	1. return > 0	: booting pm_qos should be set lower than return value
-	 *	2. return == 0	: booting pm_qos should be set to min_freq of domain
-	 *	3. return < 0	: don't need to apply thermal condition
-	 */
-	freq = exynos_earlytmu_get_boot_freq(domain->id);
-	if (freq >= 0) {
-		/*
-		 * Back up boot_qos value for reset booting pm_qos
-		 * after thermal-throttling is enabled.
-		 */
-		domain->boot_qos = boot_qos;
-
-		val = (unsigned int)freq;
-		val = max(val, domain->min_freq);
-		boot_qos = min(val, boot_qos);
-	}
-/*
- * Featuring VDD auto calibration code,
- * because VDD auto calibration will be used selectively depending on the project.
- */
-#ifdef CONFIG_VDD_AUTO_CAL
-	else {
-		unsigned int auto_cal_qos;
-
-		/*
-		 * If thernmal condition is ok
-		 * and auto calibration is defined in Device Tree,
-		 * booting pm_qos should set to defined auto-cal-freq
-		 * for defined auto-cal-duration.
-		 */
-		if (!of_property_read_u32(dn, "auto-cal-freq", &auto_cal_qos) &&
-				!of_property_read_u32(dn, "auto-cal-duration", &val)) {
-			/*
-			 * auto-cal qos use user_qos_req,
-			 * because user_qos_req isn't used in booting time.
-			 */
-			pm_qos_update_request_timeout(&domain->user_min_qos_req,
-					auto_cal_qos, val * USEC_PER_MSEC);
-			pm_qos_update_request_timeout(&domain->user_max_qos_req,
-					auto_cal_qos, val * USEC_PER_MSEC);
-		}
-
-	}
-#endif
-
-	pm_qos_update_request_timeout(&domain->min_qos_req,
-			boot_qos, 40 * USEC_PER_SEC);
-	pm_qos_update_request_timeout(&domain->max_qos_req,
-			boot_qos, 40 * USEC_PER_SEC);
-
-	/* In case of factory mode, if jig cable is attached,
-	 * set cpufreq max limit as frequency of "pm_qos-jigbooting" in device tree.
-	 */
-#if defined(CONFIG_SEC_PM) && defined(CONFIG_SEC_FACTORY)
-	pr_info("%s:jig_attached = %d\n", __func__, jig_attached);
-
-	if(jig_attached && !of_property_read_u32(dn, "pm_qos-jigbooting", &val)) {	
-		pm_qos_update_request_timeout(&domain->max_qos_req,
-				val, 100 * USEC_PER_SEC);
-		
-		pr_info("%s:Jig detected!. Set cpufreq max limit as %d for 100 secs(cpufreq-domain%d)\n", 
-			__func__, val, domain->id);
-	}
-#endif
-}
-
 static __init int init_pm_qos(struct exynos_cpufreq_domain *domain,
 					struct device_node *dn)
 {
-	int ret;
+	unsigned int boot_qos, val;
+	int freq, ret;
 
 	ret = of_property_read_u32(dn, "pm_qos-min-class",
 					&domain->pm_qos_min_class);
@@ -1428,7 +1342,57 @@ static __init int init_pm_qos(struct exynos_cpufreq_domain *domain,
 	pm_qos_add_request(&domain->user_min_qos_wo_boost_req,
 			domain->pm_qos_min_class, domain->min_freq);
 
-	set_boot_qos(domain, dn);
+	/*
+	 * Basically booting pm_qos is set to max frequency of domain.
+	 * But if pm_qos-booting exists in device tree,
+	 * booting pm_qos is selected to smaller one
+	 * between max frequency of domain and the value defined in device tree.
+	 */
+	boot_qos = domain->max_freq;
+	if (!of_property_read_u32(dn, "pm_qos-booting", &val))
+		boot_qos = min(boot_qos, val);
+
+	/*
+	 * Before setting booting pm_qos, ACME driver check thermal condition.
+	 * If necessary, booting pm_qos should be set to frequency
+	 * that considering thermal condition.
+	 * exynos_earlytmu_get_boot_freq function return this frequency.
+	 * 	1. return > 0	: booting pm_qos should be set lower than return value
+	 *	2. return == 0	: booting pm_qos should be set to min_freq of domain
+	 *	3. return < 0	: don't need to apply thermal condition
+	 */
+	freq = exynos_earlytmu_get_boot_freq(domain->id);
+	if (freq >= 0) {
+		/*
+		 * Back up boot_qos value for reset booting pm_qos
+		 * after thermal-throttling is enabled.
+		 */
+		domain->boot_qos = boot_qos;
+
+		val = (unsigned int)freq;
+		val = max(val, domain->min_freq);
+		boot_qos = min(val, boot_qos);
+	}
+
+	pm_qos_update_request_timeout(&domain->min_qos_req,
+			boot_qos, 40 * USEC_PER_SEC);
+	pm_qos_update_request_timeout(&domain->max_qos_req,
+			boot_qos, 40 * USEC_PER_SEC);
+
+	/* In case of factory mode, if jig cable is attached,
+	 * set cpufreq max limit as frequency of "pm_qos-jigbooting" in device tree.
+	 */
+#if defined(CONFIG_SEC_PM) && defined(CONFIG_SEC_FACTORY)
+	pr_info("%s:jig_attached = %d\n", __func__, jig_attached);
+
+	if(jig_attached && !of_property_read_u32(dn, "pm_qos-jigbooting", &val)) {	
+		pm_qos_update_request_timeout(&domain->max_qos_req,
+				val, 100 * USEC_PER_SEC);
+		
+		pr_info("%s:Jig detected!. Set cpufreq max limit as %d for 100 secs(cpufreq-domain%d)\n", 
+			__func__, val, domain->id);
+	}
+#endif
 
 	return 0;
 }
