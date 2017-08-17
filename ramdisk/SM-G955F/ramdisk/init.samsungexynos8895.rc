@@ -60,6 +60,10 @@ on post-fs-data
     chmod 0440 /sys/class/dsm/max98506/spk_temp_maxtime
     chown system audio /sys/class/dsm/max98506/spk_temp_overcnt
     chmod 0440 /sys/class/dsm/max98506/spk_temp_overcnt
+    chown system audio /sys/class/dsm/max98506/spk_amp_reg_wrong_cnt
+    chmod 0440 /sys/class/dsm/max98506/spk_amp_reg_wrong_cnt
+    chown system audio /sys/class/dsm/max98506/spk_amp_reg_diff_dump
+    chmod 0440 /sys/class/dsm/max98506/spk_amp_reg_diff_dump
     chown system audio /sys/class/dsm/maxdsm_cal/max
     chown system audio /sys/class/dsm/maxdsm_cal/min
     chown system audio /sys/class/dsm/maxdsm_cal/status
@@ -68,6 +72,9 @@ on post-fs-data
     chown system audio /sys/class/dsm/maxdsm_cal/rdc
     chown system audio /sys/class/dsm/maxdsm_power/duration
     chown system audio /sys/class/dsm/maxdsm_power/interval
+    chown system audio /sys/class/dsm/maxdsm_cal/v_status
+    chown system audio /sys/class/dsm/maxdsm_cal/v_duration
+    chown system audio /sys/class/dsm/maxdsm_cal/v_validation
     chown system audio /sys/class/dsm/maxdsm_power/status	
     mkdir /data/firmware 0770 audioserver system
     mkdir /efs/maxim 0770 system audio
@@ -117,7 +124,6 @@ on post-fs-data
     chown system radio /sys/class/camera/ois/oisfw
     chown system radio /sys/class/camera/ois/ois_diff
     chown system radio /sys/class/camera/ois/autotest
-    chown system radio /sys/class/camera/ois/autotest_2nd
     chown cameraserver cameraserver /sys/class/camera/ois/ois_exif
     chown system radio /sys/class/camera/secure/iris_camfw
     chown system radio /sys/class/camera/secure/iris_camfw_full
@@ -484,7 +490,7 @@ on fs
     chown system system /sys/class/lcd/panel/SVC_OCTA
     chown system system /sys/class/lcd/panel/xtalk_mode
     chown system system /sys/class/lcd/panel/poc
-	chown system system /sys/class/lcd/panel/grayspot
+    chown system system /sys/class/lcd/panel/grayspot
 
 # Permissions for LCD COPR
     chown system system /sys/class/lcd/panel/copr
@@ -524,6 +530,7 @@ on fs
 # Permission for Active clock
     chmod 0660 /dev/act_clk
     chown system system /dev/act_clk
+
 # Permission for PANEL POC
     chmod 0660 /dev/poc
     chown system system /dev/poc
@@ -541,12 +548,6 @@ on fs
 # Permissions for Displayport
     chown system system /sys/class/dp_sec/dp_sbu_sw_sel
     chown system system /sys/class/dp_sec/dex
-
-# Permission for flashlight control for HAL3.3
-# The Istor espresso board does not have the flash led h/w, So the below permission line are blocked.
-# If you want to test the flashlight in universal board which have the flash led h/w, Enable the below blocked lines.
-    chmod 0660 /sys/class/camera/flash/rear_flash
-    chown system camera /sys/class/camera/flash/rear_flash
 
 # Resampling Latency valule
     setprop ro.input.resamplelatency 1
@@ -573,6 +574,12 @@ on fs
     chmod 0664 /sys/class/input_booster/level
     chmod 0664 /sys/class/input_booster/head
     chmod 0664 /sys/class/input_booster/tail
+
+# Permission for flashlight control for HAL3.3
+# The Istor espresso board does not have the flash led h/w, So the below permission line are blocked.
+# If you want to test the flashlight in universal board which have the flash led h/w, Enable the below blocked lines.
+    chmod 0660 /sys/class/camera/flash/rear_flash
+    chown system camera /sys/class/camera/flash/rear_flash
 
 # terminal mode
     chmod 0660 /sys/class/android_usb/android0/terminal_version
@@ -867,12 +874,6 @@ service faced /system/bin/faced
     user system
     group system
 
-# irisd
-service irisd /system/bin/irisd
-    class late_start
-    user system
-    group system
-
 # umount service
 service umount_service /system/bin/umount -D /preload
     disabled
@@ -910,6 +911,12 @@ service prepare_param /system/bin/prepare_param.sh /dev/block/platform/11120000.
     group root
     seclabel u:r:prepare_param:s0
     oneshot
+
+# irisd
+service irisd /system/bin/irisd
+    class late_start
+    user system
+    group system
 
 # Secure Storage startup
 service secure_storage /system/bin/secure_storage_daemon
