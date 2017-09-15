@@ -1074,16 +1074,8 @@ on boot
    chmod 0660 /sys/class/power_supply/battery/cisd_data
    chown system radio /sys/class/power_supply/battery/cisd_data_json
    chmod 0660 /sys/class/power_supply/battery/cisd_data_json
-   chown system radio /sys/class/power_supply/battery/cisd_data_d_json
-   chmod 0660 /sys/class/power_supply/battery/cisd_data_d_json
    chown system system /efs/FactoryApp/cisd_data
    chmod 0640 /efs/FactoryApp/cisd_data
-   chown system radio /sys/class/power_supply/battery/cisd_wc_data
-   chmod 0660 /sys/class/power_supply/battery/cisd_wc_data
-   chown system radio /sys/class/power_supply/battery/cisd_wc_data_json
-   chmod 0660 /sys/class/power_supply/battery/cisd_wc_data_json
-   chown system system /efs/FactoryApp/cisd_wc_data
-   chmod 0640 /efs/FactoryApp/cisd_wc_data
 
     # OTG Test
     chown system radio /sys/class/host_notify/usb_otg/booster
@@ -1206,10 +1198,10 @@ on boot
 
 # HMT relay mode
     chown radio system /sys/devices/virtual/relay_on
-
+	
 # Daydream
     setprop sys.daydream.connected 0
-    
+
 # KNOX_NAP
     chmod 0660 /dev/ncm_dev
     chown system system /dev/ncm_dev
@@ -1391,13 +1383,14 @@ service SIDESYNC_service /system/bin/ss_conn_daemon
 service edmaudit /system/bin/edmaudit
     class main
     user root
- 	disabled
+	disabled
 
 on property:security.edmaudit=true
     start edmaudit
 
 on property:security.edmaudit=false
     stop edmaudit
+    
 ## WTL_EDM_END
 
 service kap_enable /sbin/knox_changer -e
