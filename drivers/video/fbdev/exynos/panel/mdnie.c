@@ -343,7 +343,7 @@ static void mdnie_coordinate_tune_rgb(struct mdnie_info *mdnie, int x, int y, u8
 
 	area = mdnie_coordinate_area(mdnie, x, y);
 
-	if (((x - 2991) * (x - 2991) + (y - 3148) * (y - 3148)) <= 225) {
+	if (((x - mdnie->props.cal_x_center) * (x - mdnie->props.cal_x_center) + (y - mdnie->props.cal_y_center) * (y - mdnie->props.cal_y_center)) <= mdnie->props.cal_boundary_center) {
 		tune_x = 0;
 		tune_y = 0;
 	} else {
@@ -1404,6 +1404,9 @@ int mdnie_probe(struct panel_device *panel, struct mdnie_tune *mdnie_tune)
 	memcpy(mdnie->props.line, mdnie_tune->line, sizeof(mdnie->props.line));
 	memcpy(mdnie->props.coef, mdnie_tune->coef, sizeof(mdnie->props.coef));
 	memcpy(mdnie->props.vtx, mdnie_tune->vtx, sizeof(mdnie->props.vtx));
+	mdnie->props.cal_x_center = mdnie_tune->cal_x_center;
+	mdnie->props.cal_y_center = mdnie_tune->cal_y_center;
+	mdnie->props.cal_boundary_center = mdnie_tune->cal_boundary_center;
 
 	mdnie->seqtbl = mdnie_tune->seqtbl;
 	mdnie->nr_seqtbl = mdnie_tune->nr_seqtbl;
