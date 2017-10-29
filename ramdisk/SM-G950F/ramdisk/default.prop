@@ -32,6 +32,6 @@ debug.atrace.tags.enableflags=0
 #
 # BOOTIMAGE_BUILD_PROPERTIES
 #
-ro.bootimage.build.date=Tue Aug 8 23:42:10 KST 2017
-ro.bootimage.build.date.utc=1502203330
-ro.bootimage.build.fingerprint=samsung/dreamltexx/dreamlte:7.0/NRD90M/G950FXXU1AQH3:user/test-keys
+ro.bootimage.build.date=Wed Oct 11 16:58:53 KST 2017
+ro.bootimage.build.date.utc=1507708733
+ro.bootimage.build.fingerprint=samsung/dreamltexx/dreamlte:7.0/NRD90M/G950FXXU1AQJ1:user/test-keys
