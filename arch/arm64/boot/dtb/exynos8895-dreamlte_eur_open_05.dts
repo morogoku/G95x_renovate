@@ -8635,7 +8635,7 @@ samsung,tmu_sensor_type = <0x0>;
     "+USB:OPEN",
     "+CDP:OPEN",
     "+Undefined Charging:XXX";
-  muic,afcmode-tx = /bits/ 8 <0x46>;
+  muic,afcmode-tx = /bits/ 8 <0x08>;
   muic,qc-hv = /bits/ 8 <0x9>;
  };
 
@@ -10830,16 +10830,14 @@ samsung,tmu_sensor_type = <0x0>;
   boot_device@1 {
    net_boost,label="IPC";
    net_boost,node="rmnet0 rmnet1 rmnet2 rmnet3 rmnet4 rmnet5 rmnet6 rmnet7 umts_dm0";
-   net_boost,table_size = <5>;
+   net_boost,table_size = <3>;
    net_boost,table= <
     100 0 0 1053000 0 845000 0 0 1 0
     150 0 0 1248000 0 1014000 0 0 1 0
-    200 0 0 1456000 0 1540000 0 0 1 0
-    300 0 0 1690000 0 1794000 0 0 1 0
-    400 12610000 0 1690000 0 1794000 0 0 1 0
+    200 12610000 0 1690000 0 1794000 0 0 1 0
     >;
   };
-# 3267 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 3265 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
   boot_device@2 {
    net_boost,label="UFS";
    net_boost,node="";
@@ -11152,14 +11150,18 @@ samsung,tmu_sensor_type = <0x0>;
   battery,chg_input_limit_current = <1000>;
   battery,chg_charging_limit_current = <1250>;
 
-  battery,wpc_high_temp = <410>;
-  battery,wpc_high_temp_recovery = <400>;
-  battery,wpc_charging_limit_current = <450>;
+
+  battery,wpc_temp_control_source = <1>;
+  battery,wpc_high_temp = <380>;
+  battery,wpc_high_temp_recovery = <360>;
+  battery,wpc_charging_limit_current = <600>;
   battery,wpc_lcd_on_high_temp = <430>;
   battery,wpc_lcd_on_high_temp_rec = <300>;
+  battery,wpc_lcd_on_charging_limit_current = <450>;
 
-  battery,wpc_store_high_temp = <410>;
-  battery,wpc_store_high_temp_recovery = <400>;
+  battery,wpc_store_high_temp = <380>;
+  battery,wpc_store_high_temp_recovery = <360>;
+  battery,wpc_store_charging_limit_current = <400>;
   battery,wpc_store_lcd_on_high_temp = <380>;
   battery,wpc_store_lcd_on_high_temp_rec = <300>;
 
@@ -11383,7 +11385,7 @@ samsung,tmu_sensor_type = <0x0>;
    0 1000 0
    >;
  };
-# 456 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
+# 460 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
  cable-info {
      default_input_current = <1800>;
      default_charging_current = <2100>;
