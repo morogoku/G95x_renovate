@@ -2,12 +2,16 @@
 # 1 "<built-in>"
 # 1 "<command-line>"
 # 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts"
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts"
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts"
 /dts-v1/;
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-rmem.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-rmem.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-rmem.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-rmem.dtsi"
 /memreserve/ 0xE0000000 0x1900000;
 
 / {
@@ -44,17 +48,21 @@
    reg = <0x0 0xEA800000 0x400000>;
   };
 
-
   video_stream {
    compatible = "exynos8890-ion,vstream";
    ion,secure;
    ion,reusable;
-
-
-
-   reg = <0x0 0xE6C00000 0x3C00000>;
+   reg = <0x0 0xE3C00000 0x3800000>;
    id = <3>;
    compat-id = <25 31>;
+  };
+
+  tui {
+
+   compatible = "exynos8890-ion,tui";
+   ion,reusable;
+   reg = <0x0 0xE7400000 0x3400000>;
+   id = <12>;
   };
 
   crypto {
@@ -80,21 +88,21 @@
   };
  };
 };
-# 13 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 1
-# 16 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/clock/exynos8895.h" 1
-# 17 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/ufs/ufs.h" 1
-# 18 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/soc/samsung/exynos8895.h" 1
-# 19 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/sysmmu/sysmmu.h" 1
-# 20 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/thermal/thermal.h" 1
-# 21 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi" 1
-# 15 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi"
+# 13 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 1
+# 16 "arch/arm64/boot/dts/exynos/exynos8895.dtsi"
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/clock/exynos8895.h" 1
+# 17 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/ufs/ufs.h" 1
+# 18 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/soc/samsung/exynos8895.h" 1
+# 19 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/sysmmu/sysmmu.h" 1
+# 20 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/thermal/thermal.h" 1
+# 21 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi" 1
+# 15 "arch/arm64/boot/dts/exynos/exynos8895-pinctrl.dtsi"
 / {
 
  pinctrl@164B0000 {
@@ -1094,7 +1102,7 @@
 
   fimc_is_flash_is: fimc-is-flash-is {
    samsung,pins = "gpc0-1", "gpc0-2";
-   samsung,pin-function = <2>;
+   samsung,pin-function = <1>;
    samsung,pin-pud = <1>;
    samsung,pin-drv = <0>;
   };
@@ -1842,11 +1850,11 @@
   };
  };
 };
-# 22 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi" 1
-# 15 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/power/exynos-power.h" 1
-# 16 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi" 2
+# 22 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi" 1
+# 15 "arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi"
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/power/exynos-power.h" 1
+# 16 "arch/arm64/boot/dts/exynos/exynos8895-pm-domains.dtsi" 2
 
 / {
  pd_abox: pd-abox@16484000 {
@@ -2048,12 +2056,12 @@
   samsung,power-domain = <&pd_vts>;
  };
 };
-# 23 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi" 1
-# 16 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi"
+# 23 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi" 1
+# 16 "arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi"
 / {
  exynos-snapshot {
-# 34 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi"
+# 34 "arch/arm64/boot/dts/exynos/exynos8895-ess.dtsi"
   compatible = "samsung,exynos-snapshot";
   dump-info@0x0 {
    sfr-dump-list = "sfr-dump-cmu-peris", "sfr-dump-cmu-abox", "sfr-dump-dram";
@@ -2083,7 +2091,7 @@
   };
  };
 };
-# 24 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 24 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
 
 / {
  compatible = "samsung,armv8", "samsung,exynos8895";
@@ -5610,6 +5618,9 @@
   reg = <0x0 0x14020000 0x10000>, <0x0 0x14100000 0x59800>,
     <0x0 0x14070000 0x8>, <0x0 0x141F0000 0x50>;
   reg-names = "sfr", "sram", "dmic", "gpr";
+  #address-cells = <2>;
+  #size-cells = <1>;
+  ranges;
   pinctrl-names = "dmic_default", "amic_default", "idle";
   pinctrl-0 = <&dmic_bus_clk &dmic_pdm>;
   pinctrl-1 = <&amic_bus_clk &amic_pdm>;
@@ -5622,20 +5633,21 @@
   interrupt-parent = <&mailbox_vts>;
   interrupts = <0>, <1>, <2>, <3>, <4>, <5>;
   interrupt-names = "error", "boot_completed", "ipc_received", "voice_triggered", "trigger_period_elapsed", "record_period_elapsed";
- };
+  vts_dma0: vts_dma@0x0 {
+   compatible = "samsung,vts-dma";
+   reg = <0x0 0x0 0x0>;
+   vts = <&vts>;
+   id = <0>;
+   type = "vts-trigger";
+  };
 
- vts_dma0: vts_dma0 {
-  compatible = "samsung,vts-dma";
-  vts = <&vts>;
-  id = <0>;
-  type = "vts-trigger";
- };
-
- vts_dma1: vts_dma1 {
-  compatible = "samsung,vts-dma";
-  vts = <&vts>;
-  id = <1>;
-  type = "vts-record";
+  vts_dma1: vts_dma@0x1 {
+   compatible = "samsung,vts-dma";
+   reg = <0x0 0x1 0x0>;
+   vts = <&vts>;
+   id = <1>;
+   type = "vts-record";
+  };
  };
 
  pcie0@116A0000 {
@@ -5751,7 +5763,7 @@
   ip_ver = <15>;
   clock_rate = <400000000>;
   min_rate = <100000>;
-  num_qos_steps = <7>;
+  num_qos_steps = <8>;
   max_mb = <4757298>;
   mfc_qos_table {
    mfc_qos_variant_0 {
@@ -5762,6 +5774,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <0>;
+    mo_10bit_value = <0>;
     time_fw = <923>;
    };
    mfc_qos_variant_1 {
@@ -5772,6 +5785,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <0>;
+    mo_10bit_value = <0>;
     time_fw = <431>;
    };
    mfc_qos_variant_2 {
@@ -5782,6 +5796,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <0>;
+    mo_10bit_value = <0>;
     time_fw = <261>;
    };
    mfc_qos_variant_3 {
@@ -5792,6 +5807,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <0>;
+    mo_10bit_value = <0>;
     time_fw = <226>;
    };
    mfc_qos_variant_4 {
@@ -5802,6 +5818,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <0>;
+    mo_10bit_value = <0>;
     time_fw = <161>;
    };
    mfc_qos_variant_5 {
@@ -5812,6 +5829,7 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <1>;
+    mo_10bit_value = <0>;
     time_fw = <196>;
    };
    mfc_qos_variant_6 {
@@ -5822,6 +5840,18 @@
     freq_cpu = <0>;
     freq_kfc = <0>;
     mo_value = <1>;
+    mo_10bit_value = <0>;
+    time_fw = <161>;
+   };
+   mfc_qos_variant_7 {
+    thrd_mb = <4517358>;
+    freq_mfc = <667000>;
+    freq_int = <533000>;
+    freq_mif = <1794000>;
+    freq_cpu = <0>;
+    freq_kfc = <0>;
+    mo_value = <0>;
+    mo_10bit_value = <1>;
     time_fw = <161>;
    };
   };
@@ -5903,7 +5933,7 @@
 
   iommus = <&sysmmu_score0>;
  };
-# 3853 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi"
+# 3875 "arch/arm64/boot/dts/exynos/exynos8895.dtsi"
  iommu-domain_iva_score {
   compatible = "samsung,exynos-iommu-bus";
   #dma-address-cells = <1>;
@@ -6357,16 +6387,16 @@
 
   sysmmu,tlb_property =
 
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x0))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x4))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x8))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x10))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x14))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x18))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x20))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x24))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x28))>,
-   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x30))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x0))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x4))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x8))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x10))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x14))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x18))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x20))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x24))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x28))>,
+   <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) ((0x3F) << 16 | (0x30))>,
 
    <(((0x0 << 12) | (0x1 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x7))>,
    <(((0x0 << 12) | (0x2 << 8) | (0x1 << 2) | (0x1 << 1)) | (0x2 << 5)) (0xFFFF << 16 | (0x3))>,
@@ -6522,10 +6552,10 @@
   hotplug_enable = <1>;
   hotplug_in_threshold = <91>;
   hotplug_out_threshold = <96>;
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/include/dt-bindings/thermal/thermal_exynos.h" 1
-# 13 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
+# 1 "./arch/arm64/boot/dts/include/dt-bindings/thermal/thermal_exynos.h" 1
+# 13 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 2
 
 #thermal-sensor-cells = <0>;
 samsung,tmu_gain = <0>;
@@ -6538,7 +6568,7 @@ samsung,tmu_default_temp_offset = <50>;
 samsung,tmu_default_trip_temp = <115>;
 samsung,tmu_cal_type = <0>;
 samsung,tmu_sensor_type = <0x0>;
-# 4472 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 4494 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
  };
 
  tmuctrl_1: APOLLO@10080000 {
@@ -6549,8 +6579,8 @@ samsung,tmu_sensor_type = <0x0>;
   id = <1>;
   sensors = <2>;
   sensing_mode = "max";
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
-# 14 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
+# 14 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
 #thermal-sensor-cells = <0>;
 samsung,tmu_gain = <0>;
 samsung,tmu_reference_voltage = <0>;
@@ -6562,7 +6592,7 @@ samsung,tmu_default_temp_offset = <50>;
 samsung,tmu_default_trip_temp = <115>;
 samsung,tmu_cal_type = <0>;
 samsung,tmu_sensor_type = <0x0>;
-# 4483 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 4505 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
  };
 
  tmuctrl_2: GPU@10084000 {
@@ -6582,8 +6612,8 @@ samsung,tmu_sensor_type = <0x0>;
           0 3 338000
           0 4 260000
           0 5 (~1)>;
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
-# 14 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
+# 14 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
 #thermal-sensor-cells = <0>;
 samsung,tmu_gain = <0>;
 samsung,tmu_reference_voltage = <0>;
@@ -6595,7 +6625,7 @@ samsung,tmu_default_temp_offset = <50>;
 samsung,tmu_default_trip_temp = <115>;
 samsung,tmu_cal_type = <0>;
 samsung,tmu_sensor_type = <0x0>;
-# 4503 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 4525 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
  };
 
  tmuctrl_3: ISP@10084000 {
@@ -6606,8 +6636,8 @@ samsung,tmu_sensor_type = <0x0>;
   id = <3>;
   sensors = <6>;
   sensing_mode = "max";
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
-# 14 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi" 1
+# 14 "arch/arm64/boot/dts/exynos/exynos8895-tmu-sensor-conf.dtsi"
 #thermal-sensor-cells = <0>;
 samsung,tmu_gain = <0>;
 samsung,tmu_reference_voltage = <0>;
@@ -6619,7 +6649,7 @@ samsung,tmu_default_temp_offset = <50>;
 samsung,tmu_default_trip_temp = <115>;
 samsung,tmu_cal_type = <0>;
 samsung,tmu_sensor_type = <0x0>;
-# 4514 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
+# 4536 "arch/arm64/boot/dts/exynos/exynos8895.dtsi" 2
  };
 
  thermal-zones {
@@ -7036,6 +7066,23 @@ samsung,tmu_sensor_type = <0x0>;
    input_booster,phase_times = <0 0>;
   };
   booster_key@9 {
+   input_booster,label = "PEN";
+   input_booster,type = <8>;
+
+   input_booster,levels = <1 2>;
+
+
+
+   input_booster,cpu_freqs = <1469000 858000>;
+   input_booster,hmp_boost = <1 1>;
+   input_booster,kfc_freqs = <832000 832000>;
+   input_booster,bimc_freqs = <0 0>;
+
+
+   input_booster,head_times = <200 0>;
+   input_booster,tail_times = <0 600>;
+  };
+  booster_key@10 {
    input_booster,label = "KEY_TWO";
    input_booster,type = <9>;
 
@@ -7063,9 +7110,9 @@ samsung,tmu_sensor_type = <0x0>;
   interrupts = <0 79 0>, <0 78 0>;
  };
 };
-# 14 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-display-lcd.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-display-lcd.dtsi"
+# 14 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-display-lcd.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-display-lcd.dtsi"
 / {
  emul_display: emul_display {
   mode = <0>;
@@ -7090,6 +7137,11 @@ samsung,tmu_sensor_type = <0x0>;
   cmd_underrun_lp_ref = <1203>;
   vt_compensation = <2871>;
   dsu_en = <0>;
+  hdr_num = <0>;
+  hdr_type = <0 0 0 0>;
+  hdr_max_luma = <0>;
+  hdr_max_avg_luma = <0>;
+  hdr_min_luma = <0>;
  };
 
  s6e3hf4: s6e3hf4_wqhd {
@@ -7113,8 +7165,73 @@ samsung,tmu_sensor_type = <0x0>;
   dsc_slice_h = <64>;
   data_lane = <4>;
   cmd_underrun_lp_ref = <5629>;
-  dsu_en = <0>;
+  dsu_en = <1>;
+  dsu_number = <3>;
+  dsu_width = <1440 1080 720>;
+  dsu_height = <2560 1920 1280>;
+  dsu_dsc_width = <720 540 360>;
+  dsu_dsc_height = <64 64 128>;
+  dsu_dsc_en = <1 1 1>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
+
+ s6e3hf4_vkc: s6e3hf4_vkc_ddi {
+  ldi_name = "s6e3hf4";
+  mode = <2>;
+  resolution = <2160 1920>;
+  size = <68 122>;
+  timing,refresh = <60>;
+  timing,h-porch = <2 2 2>;
+  timing,v-porch = <15 3 1>;
+  timing,dsi-hs-clk = <1100>;
+  timing,pms = <4 677 2>;
+  timing,dsi-escape-clk = <20>;
+  mic_en = <0>;
+  mic_ratio = <2>;
+  mic_ver = <2>;
+  type_of_ddi = <0>;
+  dsc_en = <1>;
+  dsc_cnt = <2>;
+  dsc_slice_num = <2>;
+  dsc_slice_h = <32>;
+  data_lane = <4>;
+  cmd_underrun_lp_ref = <5629>;
+  dsu_en = <0>;
+  op_mode = <1>;
+  ss_path_swap = <1>;
+ };
+
+
+ s6e3hf3_vkc: s6e3hf3_vkc_ddi {
+  ldi_name = "s6e3hf3";
+  mode = <2>;
+  resolution = <2160 1920>;
+  size = <68 122>;
+  timing,refresh = <60>;
+  timing,h-porch = <2 2 2>;
+  timing,v-porch = <15 3 1>;
+  timing,dsi-hs-clk = <1100>;
+  timing,pms = <4 677 2>;
+  timing,dsi-escape-clk = <20>;
+  mic_en = <0>;
+  mic_ratio = <2>;
+  mic_ver = <2>;
+  type_of_ddi = <0>;
+  dsc_en = <0>;
+  dsc_cnt = <2>;
+  dsc_slice_num = <2>;
+  dsc_slice_h = <32>;
+  data_lane = <4>;
+  cmd_underrun_lp_ref = <5629>;
+  dsu_en = <0>;
+  op_mode = <1>;
+  ss_path_swap = <1>;
+ };
+
 
  s6e3ha6: s6e3ha6_ddi {
   ldi_name = "s6e3ha6";
@@ -7144,6 +7261,46 @@ samsung,tmu_sensor_type = <0x0>;
   dsu_dsc_width = <720 540 360>;
   dsu_dsc_height = <40 30 74>;
   dsu_dsc_en = <1 1 0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
+ };
+
+ s6e3ha6_great: s6e3ha6_great_ddi {
+  ldi_name = "s6e3ha6";
+  mode = <2>;
+  resolution = <1440 2960>;
+  size = <71 145>;
+  timing,refresh = <60>;
+  timing,h-porch = <2 2 2>;
+  timing,v-porch = <15 3 1>;
+  timing,dsi-hs-clk = <898>;
+  timing,pms = <5 691 2>;
+  timing,dsi-escape-clk = <20>;
+  mic_en = <0>;
+  mic_ratio = <2>;
+  mic_ver = <2>;
+  type_of_ddi = <0>;
+  dsc_en = <1>;
+  dsc_cnt = <2>;
+  dsc_slice_num = <2>;
+  dsc_slice_h = <40>;
+  data_lane = <4>;
+  cmd_underrun_lp_ref = <3022>;
+  dsu_en = <1>;
+  dsu_number = <3>;
+  dsu_width = <1440 1080 720>;
+  dsu_height = <2960 2220 1480>;
+  dsu_dsc_width = <720 540 360>;
+  dsu_dsc_height = <40 30 74>;
+  dsu_dsc_en = <1 1 0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
 
 
@@ -7175,6 +7332,11 @@ samsung,tmu_sensor_type = <0x0>;
   dsu_dsc_width = <720 540 360>;
   dsu_dsc_height = <40 30 74>;
   dsu_dsc_en = <1 1 0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
 
  s6e3ha6_dream1: s6e3ha6_dream1_ddi {
@@ -7205,6 +7367,11 @@ samsung,tmu_sensor_type = <0x0>;
   dsu_dsc_width = <720 540 360>;
   dsu_dsc_height = <40 30 74>;
   dsu_dsc_en = <1 1 0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
 
  s6e3ha2k: s6e3ha2k_wqhd {
@@ -7228,6 +7395,11 @@ samsung,tmu_sensor_type = <0x0>;
   data_lane = <4>;
   cmd_underrun_lp_ref = <1203>;
   dsu_en = <0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
 
  s6e3ha3: s6e3ha3_wqhd {
@@ -7251,8 +7423,43 @@ samsung,tmu_sensor_type = <0x0>;
   data_lane = <4>;
   cmd_underrun_lp_ref = <1203>;
   dsu_en = <0>;
+  hdr_num = <1>;
+  hdr_type = <2 0 0 0>;
+  hdr_max_luma = <5400000>;
+  hdr_max_avg_luma = <1200000>;
+  hdr_min_luma = <5>;
  };
 
+
+ s6e3ha2_dual_dsi: s6e3ha2_ddi_dual_dsi {
+  ldi_name = "s6e3ha2";
+  mode = <2>;
+  resolution = <1536 2048>;
+  size = <122 163>;
+  timing,refresh = <60>;
+  timing,h-porch = <2 2 2>;
+  timing,v-porch = <19 3 1>;
+  timing,dsi-hs-clk = <821>;
+  timing,pms = <3 379 2>;
+  timing,dsi-escape-clk = <20>;
+  mic_en = <0>;
+  mic_ratio = <2>;
+  mic_ver = <2>;
+  type_of_ddi = <0>;
+  dsc_en = <0>;
+  dsc_cnt = <1>;
+  dsc_slice_num = <1>;
+  dsc_slice_h = <32>;
+  data_lane = <4>;
+  cmd_underrun_lp_ref = <3482>;
+  dsu_en = <0>;
+
+
+
+
+  op_mode = <2>;
+  ss_path_swap = <0>;
+ };
  panel_spi: spi_gpio {
   compatible = "spi-gpio";
   #address-cells = <1>;
@@ -7267,13 +7474,13 @@ samsung,tmu_sensor_type = <0x0>;
    compatible = "panel_spi";
    reg = <0>;
    spi-max-frequency = <1200000>;
-   bits-per-word = <9>;
+   bits-per-word = <8>;
   };
  };
 };
-# 15 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/modem-ss355ap-pdata.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/modem-ss355ap-pdata.dtsi"
+# 15 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
+# 1 "arch/arm64/boot/dts/exynos/modem-ss355ap-pdata.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/modem-ss355ap-pdata.dtsi"
 / {
 
  mif_pdata {
@@ -7350,6 +7557,8 @@ samsung,tmu_sensor_type = <0x0>;
   sbi_ap_status_mask = <0xf>;
   sbi_ap_status_pos = <1>;
 
+  sbi_crash_type_mask = <0xf>;
+  sbi_crash_type_pos = <23>;
   sbi_device_type_mask = <0x1f>;
   sbi_device_type_pos = <18>;
   sbi_ext_backtrace_mask = <0x1>;
@@ -7400,7 +7609,7 @@ samsung,tmu_sensor_type = <0x0>;
    io_device_2 {
     iod,name = "umts_rfs0";
     iod,id = <245>;
-    iod,format = <1>;
+    iod,format = <2>;
     iod,io_type = <0>;
     iod,links = <0x200>;
     iod,attrs = <0x82>;
@@ -7651,14 +7860,14 @@ samsung,tmu_sensor_type = <0x0>;
   shmem,ipc_offset = <0x8000000>;
   shmem,ipc_size = <0x500000>;
   shmem,zmb_offset = <0x8500000>;
-  shmem,zmb_size = <0x900000>;
+  shmem,zmb_size = <0xB00000>;
  };
 
  mailbox_cp: mcu_ipc@15B40000 {
   mcu,irq_affinity_mask = <3>;
  };
 };
-# 16 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
+# 16 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi" 2
 
 / {
  model = "Samsung UNIVERSAL8895 board based on EXYNOS8895";
@@ -8418,8 +8627,8 @@ samsung,tmu_sensor_type = <0x0>;
    };
 
    torch {
-    torch1-gpio = "gpc0-2";
-    flash1-gpio = "gpc0-1";
+    torch1-gpio = <&gpc0 2 0x1>;
+    flash1-gpio = <&gpc0 1 0x1>;
 
     status = "okay";
 
@@ -8469,7 +8678,7 @@ samsung,tmu_sensor_type = <0x0>;
      745 769 794 819 846 873 901 930 959 990
      1021 1053 1086 1119 1154 1189 1225 1262 1300 1338
      1378 1418 1459 1500 1543 1586 1630 1674 1719 1764
-      1811 1857 1904 1952 2000 2048 2096 2145 2194 2243
+     1811 1857 1904 1952 2000 2048 2096 2145 2194 2243
      2291 2342 2389 2439 2487 2537 2585 2633 2681 2726
      2774 2819 2865 2910 2954 2997 3038 3081 3122 3161
      3199 3238 3275 3311 3345 3379 3413 3445 3475 3504
@@ -8517,7 +8726,6 @@ samsung,tmu_sensor_type = <0x0>;
   sd-uhs-sdr50;
   sd-uhs-sdr104;
   card-detect-gpio;
-  only_once_tune;
   mmc-ddr-1_8v;
   supports-4bit;
   supports-cmd23;
@@ -8529,7 +8737,7 @@ samsung,tmu_sensor_type = <0x0>;
   desc-size = <4>;
   card-detect-delay = <200>;
   data-timeout = <200>;
-  hto-timeout = <550>;
+  hto-timeout = <80>;
   qos-int-level = <400000>;
   clock-frequency = <800000000>;
   samsung,dw-mshc-sdr-timing = <3 0 2 0>;
@@ -8682,7 +8890,6 @@ samsung,tmu_sensor_type = <0x0>;
    stm,regulator_dvdd = "tsp_io";
    stm,regulator_avdd = "tsp_avdd";
    stm,project_name = "Dream1", "G950";
-   stm,use_pressure = <1>;
    stm,firmware_name = "tsp_stm/fts9cd56_dream1.fw", "tsp_stm/fts9cd56_dream1.fw";
    stm,device_gpio = <&gpa4 6 0>;
    support_dex_mode;
@@ -8707,7 +8914,6 @@ samsung,tmu_sensor_type = <0x0>;
    sec,regulator_dvdd = "tsp_io";
    sec,regulator_avdd = "tsp_avdd";
    sec,regulator_boot_on;
-   sec,always_lpmode = <1>;
    sec,pat_function = <2>;
    sec,afe_base = <0x0121>;
    sec,project_name = "Dream1", "G950";
@@ -9020,6 +9226,11 @@ samsung,tmu_sensor_type = <0x0>;
        cirrus,bin-file = "None";
        cirrus,append-sr;
       };
+      TRACE {
+       cirrus,wmfw-file = "trace";
+       cirrus,bin-file = "None";
+       cirrus,compr-caps = <1 8 0x4 1 8000 16000 24000 32000 48000>;
+      };
      };
     };
    };
@@ -9125,8 +9336,7 @@ samsung,tmu_sensor_type = <0x0>;
      "SPEAKER", "HiFi Playback",
      "VOUTPUTCALL", "ABOX UAIF2 Playback",
      "ABOX UAIF2 Capture", "VINPUTCALL",
-     "VTS Virtual Output", "VTS Virtual Output Mux",
-     "VTS Virtual Output Mux", "DMIC1";
+     "VTS Virtual Output", "VTS Virtual Output Mux";
 
   samsung,codec = <&abox &vts>;
   samsung,aux = <&abox_effect>;
@@ -9598,6 +9808,22 @@ samsung,tmu_sensor_type = <0x0>;
   flash-gpio = <&gpc0 1 0x1>;
  };
 
+ sec_abc {
+  compatible = "samsung,sec_abc";
+  status = "okay";
+
+  gpu {
+   gpu,label="GPU fault";
+   gpu,threshold_count=<20>;
+   gpu,threshold_time=<1200>;
+  };
+  aicl {
+   aicl,label="battery aicl";
+   aicl,threshold_count=<5>;
+   aicl,threshold_time=<300>;
+  };
+ };
+
  fimc_is@13140000 {
   pinctrl-names = "default","release";
   pinctrl-0 = <&fimc_is_flash_is &fimc_is_mclk0_out &fimc_is_mclk1_out &fimc_is_mclk2_out &fimc_is_mclk3_out>;
@@ -9657,7 +9883,7 @@ samsung,tmu_sensor_type = <0x0>;
    };
   };
   fimc_is_dvfs {
-# 2050 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 2067 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
    table0 {
     desc = "dvfs table v0.0 for 12M/8M";
 
@@ -10295,7 +10521,8 @@ samsung,tmu_sensor_type = <0x0>;
   };
 
   internal_vc {
-   vc_list = <2 2>;
+# 2716 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+   vc_list = <2 2 1>;
   };
  };
 
@@ -10347,7 +10574,7 @@ samsung,tmu_sensor_type = <0x0>;
   };
 
   internal_vc {
-   vc_list = <2 2>;
+   vc_list = <2 2 1>;
   };
  };
 
@@ -10400,7 +10627,7 @@ samsung,tmu_sensor_type = <0x0>;
   };
 
   internal_vc {
-   vc_list = <2 2>;
+   vc_list = <2 2 1>;
   };
  };
 
@@ -10448,7 +10675,7 @@ samsung,tmu_sensor_type = <0x0>;
   };
 
   internal_vc {
-   vc_list = <2 2>;
+   vc_list = <2 2 1>;
   };
  };
 
@@ -10496,7 +10723,7 @@ samsung,tmu_sensor_type = <0x0>;
   };
 
   internal_vc {
-   vc_list = <2 2>;
+   vc_list = <2 2 1>;
   };
  };
 
@@ -10585,7 +10812,7 @@ samsung,tmu_sensor_type = <0x0>;
 
   };
  };
-# 2986 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 3015 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
  fimc_is_sensor0: fimc_is_sensor@12CA0000 {
   scenario = <0>;
   id = <0>;
@@ -10738,6 +10965,7 @@ samsung,tmu_sensor_type = <0x0>;
  };
 
  serial_1: uart@10830000 {
+  samsung,uart-logging;
   status = "okay";
  };
 
@@ -10823,10 +11051,39 @@ samsung,tmu_sensor_type = <0x0>;
   };
  };
 
+ nad_balancer {
+  compatible = "samsung,sec_nad_balancer";
+  status = "okay";
+
+   qos {
+    cl0 {
+     qos,label="LIT";
+     qos,delay_time=<9>;
+     qos,table_size=<9>;
+     qos,table=<1690000 1456000 1248000 1053000 949000 832000 715000 598000 455000>;
+    };
+
+    cl1 {
+     qos,label="BIG";
+     qos,delay_time=<8>;
+     qos,table_size=<13>;
+     qos,table=<2314000 2158000 2002000 1937000 1807000 1703000 1469000 1261000
+      1170000 1066000 962000 858000 741000>;
+    };
+
+    mif {
+     qos,label="MIF";
+     qos,delay_time=<10>;
+     qos,table_size=<6>;
+     qos,table=<1794000 1540000 1352000 1014000 845000 676000>;
+    };
+   };
+ };
+
  argos {
   compatible = "samsung,argos";
   #address-cells = <1>;
-# 3246 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 3305 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
   boot_device@1 {
    net_boost,label="IPC";
    net_boost,node="rmnet0 rmnet1 rmnet2 rmnet3 rmnet4 rmnet5 rmnet6 rmnet7 umts_dm0";
@@ -10837,7 +11094,7 @@ samsung,tmu_sensor_type = <0x0>;
     200 12610000 0 1690000 0 1794000 0 0 1 0
     >;
   };
-# 3265 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
+# 3324 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_common.dtsi"
   boot_device@2 {
    net_boost,label="UFS";
    net_boost,node="";
@@ -10966,11 +11223,11 @@ samsung,tmu_sensor_type = <0x0>;
   };
  };
 };
-# 14 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
+# 14 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
 / {
  pinctrl@164B0000 {
   wpc_int: wpc-int {
@@ -11008,6 +11265,7 @@ samsung,tmu_sensor_type = <0x0>;
 
  hsi2c@10940000 {
   status = "okay";
+  samsung,stop-after-trans;
   clock-frequency = <100000>;
 
   mfc-charger@3b {
@@ -11385,7 +11643,7 @@ samsung,tmu_sensor_type = <0x0>;
    0 1000 0
    >;
  };
-# 460 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
+# 461 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_common.dtsi"
  cable-info {
      default_input_current = <1800>;
      default_charging_current = <2100>;
@@ -11449,7 +11707,7 @@ samsung,tmu_sensor_type = <0x0>;
     };
  };
 };
-# 13 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi" 2
+# 13 "arch/arm64/boot/dts/exynos/battery_data_dreamlte_eur_07.dtsi" 2
 
 / {
  battery {
@@ -11463,27 +11721,27 @@ samsung,tmu_sensor_type = <0x0>;
   fuelgauge,fg_resistor = <1>;
  };
 };
-# 15 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_motor.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_motor.dtsi"
+# 15 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_motor.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_motor.dtsi"
 / {
  haptic {
   status = "okay";
   haptic,model = <1>;
   haptic,max_timeout = <10000>;
 
-  haptic,multi_frequency = <5>;
+  haptic,multi_frequency = <7>;
 
-  haptic,duty = <31738 42317 33853 25390 28211>;
-  haptic,period = <48828 65104 52083 39062 43402>;
+  haptic,duty = <31738 42317 33853 25390 28211 37108 37108>;
+  haptic,period = <48828 65104 52083 39062 43402 39062 39062>;
   haptic,reg2 = <0x82>;
   haptic,pwm_id = <1>;
   haptic,regulator_name = "VDD_MOTOR_3P3";
  };
 };
-# 16 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_svcled.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_svcled.dtsi"
+# 16 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_svcled.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_svcled.dtsi"
 / {
  rgb {
   led_device_type = <0>;
@@ -11562,9 +11820,9 @@ samsung,tmu_sensor_type = <0x0>;
   br_ratio_b_low_pg = <19>;
  };
 };
-# 17 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/ccic-s2mm005_01.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/ccic-s2mm005_01.dtsi"
+# 17 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/ccic-s2mm005_01.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/ccic-s2mm005_01.dtsi"
 / {
  pinctrl@164B0000 {
   usbpd_irq: usbpd-irq {
@@ -11635,9 +11893,9 @@ samsung,tmu_sensor_type = <0x0>;
   };
  };
 };
-# 18 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_mst_00.dtsi" 1
-# 13 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_mst_00.dtsi"
+# 18 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_mst_00.dtsi" 1
+# 13 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_mst_00.dtsi"
 / {
  sec-mst{
   compatible = "sec-mst";
@@ -11671,11 +11929,11 @@ samsung,tmu_sensor_type = <0x0>;
   };
  };
 };
-# 19 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi" 1
-# 12 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi"
-# 1 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos_gpio_config_macros.dtsi" 1
-# 13 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi" 2
+# 19 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 1 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi" 1
+# 12 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi"
+# 1 "arch/arm64/boot/dts/exynos/exynos_gpio_config_macros.dtsi" 1
+# 13 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_gpio_08.dtsi" 2
 
 
 
@@ -11702,7 +11960,7 @@ samsung,tmu_sensor_type = <0x0>;
  pinctrl-0 = <&initial3>;
  pinctrl-1 = <&sleep3>;
  initial3: initial-state {
-      gpi1-2 { samsung,pins = "gpi1-2"; samsung,pin-function = <0>; samsung,pin-pud = <1>; samsung,pin-drv = <0x0>; };
+  gpi1-2 { samsung,pins = "gpi1-2"; samsung,pin-function = <0>; samsung,pin-pud = <1>; samsung,pin-drv = <0x0>; };
   gpi1-3 { samsung,pins = "gpi1-3"; samsung,pin-function = <1>; samsung,pin-pud = <0>; samsung,pin-drv = <0x2>; };
   gpi1-6 { samsung,pins = "gpi1-6"; samsung,pin-function = <1>; samsung,pin-pud = <0>; samsung,pin-drv = <0x0>; };
   gpi1-7 { samsung,pins = "gpi1-7"; samsung,pin-function = <0>; samsung,pin-pud = <3>; samsung,pin-drv = <0x0>; };
@@ -11711,7 +11969,7 @@ samsung,tmu_sensor_type = <0x0>;
   gpi0-2 { samsung,pins = "gpi0-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpi1-0 { samsung,pins = "gpi1-0"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <0>; };
   gpi1-1 { samsung,pins = "gpi1-1"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <0>; };
-         gpi1-2 { samsung,pins = "gpi1-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
+  gpi1-2 { samsung,pins = "gpi1-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpi1-3 { samsung,pins = "gpi1-3"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <0>; };
   gpi1-4 { samsung,pins = "gpi1-4"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
   gpi1-5 { samsung,pins = "gpi1-5"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
@@ -11875,8 +12133,8 @@ samsung,tmu_sensor_type = <0x0>;
   gpb0-1 { samsung,pins = "gpb0-1"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <0>; };
   gpb0-2 { samsung,pins = "gpb0-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpc0-0 { samsung,pins = "gpc0-0"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
-  gpc0-1 { samsung,pins = "gpc0-1"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
-  gpc0-2 { samsung,pins = "gpc0-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
+  gpc0-1 { samsung,pins = "gpc0-1"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <1>; };
+  gpc0-2 { samsung,pins = "gpc0-2"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <1>; };
   gpc0-3 { samsung,pins = "gpc0-3"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpc0-4 { samsung,pins = "gpc0-4"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpc1-0 { samsung,pins = "gpc1-0"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
@@ -11933,9 +12191,9 @@ samsung,tmu_sensor_type = <0x0>;
   gpe4-6 { samsung,pins = "gpe4-6"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
   gpe4-7 { samsung,pins = "gpe4-7"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
   gpe5-0 { samsung,pins = "gpe5-0"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
-         gpe5-1 { samsung,pins = "gpe5-1"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
-         gpe5-2 { samsung,pins = "gpe5-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
-         gpe5-3 { samsung,pins = "gpe5-3"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
+  gpe5-1 { samsung,pins = "gpe5-1"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
+  gpe5-2 { samsung,pins = "gpe5-2"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
+  gpe5-3 { samsung,pins = "gpe5-3"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <1>; };
   gpe5-4 { samsung,pins = "gpe5-4"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
   gpe5-5 { samsung,pins = "gpe5-5"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
   gpe5-6 { samsung,pins = "gpe5-6"; samsung,pin-con-pdn = <2>; samsung,pin-pud-pdn = <0>; };
@@ -11954,7 +12212,7 @@ samsung,tmu_sensor_type = <0x0>;
   gpf0-3 { samsung,pins = "gpf0-3"; samsung,pin-con-pdn = <3>; samsung,pin-pud-pdn = <0>; };
  };
 };
-# 20 "/home/mwilky/Android/kernels/G95x_renovate/arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
+# 20 "arch/arm64/boot/dts/exynos/exynos8895-dreamlte_eur_open_08.dts" 2
 
 / {
  model = "Samsung DREAMLTE EUR rev03 board based on EXYNOS8895";
