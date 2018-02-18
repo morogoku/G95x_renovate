@@ -7,7 +7,6 @@
  *		2 of the License, or (at your option) any later version.
  *
  * Authors:	Maxim Giryaev	<gem@asplinux.ru>
- *		David S. Miller	<davem@redhat.com>
  *		Alexey Kuznetsov <kuznet@ms2.inr.ac.ru>
  *		Kunihiro Ishiguro <kunihiro@ipinfusion.com>
  *		Kazunori MIYAZAWA / USAGI Project <miyazawa@linux-ipv6.org>
@@ -1474,8 +1473,6 @@ static int pfkey_add(struct sock *sk, struct sk_buff *skb, const struct sadb_msg
 	else
 		err = xfrm_state_update(x);
 
-	xfrm_audit_state_add(x, err ? 0 : 1, true);
-
 	if (err < 0) {
 		x->km.state = XFRM_STATE_DEAD;
 		__xfrm_state_put(x);
@@ -1528,7 +1525,6 @@ static int pfkey_delete(struct sock *sk, struct sk_buff *skb, const struct sadb_
 	c.event = XFRM_MSG_DELSA;
 	km_state_notify(x, &c);
 out:
-	xfrm_audit_state_delete(x, err ? 0 : 1, true);
 	xfrm_state_put(x);
 
 	return err;
@@ -2278,8 +2274,6 @@ static int pfkey_spdadd(struct sock *sk, struct sk_buff *skb, const struct sadb_
 	err = xfrm_policy_insert(pol->sadb_x_policy_dir-1, xp,
 				 hdr->sadb_msg_type != SADB_X_SPDUPDATE);
 
-	xfrm_audit_policy_add(xp, err ? 0 : 1, true);
-
 	if (err)
 		goto out;
 
@@ -2359,8 +2353,6 @@ static int pfkey_spddelete(struct sock *sk, struct sk_buff *skb, const struct sa
 	security_xfrm_policy_free(pol_ctx);
 	if (xp == NULL)
 		return -ENOENT;
-
-	xfrm_audit_policy_delete(xp, err ? 0 : 1, true);
 
 	if (err)
 		goto out;
@@ -2608,7 +2600,6 @@ static int pfkey_spdget(struct sock *sk, struct sk_buff *skb, const struct sadb_
 		return -ENOENT;
 
 	if (delete) {
-		xfrm_audit_policy_delete(xp, err ? 0 : 1, true);
 
 		if (err)
 			goto out;

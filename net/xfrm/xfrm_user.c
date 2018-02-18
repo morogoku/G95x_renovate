@@ -641,8 +641,6 @@ static int xfrm_add_sa(struct sk_buff *skb, struct nlmsghdr *nlh,
 	else
 		err = xfrm_state_update(x);
 
-	xfrm_audit_state_add(x, err ? 0 : 1, true);
-
 	if (err < 0) {
 		x->km.state = XFRM_STATE_DEAD;
 		__xfrm_state_put(x);
@@ -725,7 +723,6 @@ static int xfrm_del_sa(struct sk_buff *skb, struct nlmsghdr *nlh,
 	km_state_notify(x, &c);
 
 out:
-	xfrm_audit_state_delete(x, err ? 0 : 1, true);
 	xfrm_state_put(x);
 	return err;
 }
@@ -1533,7 +1530,6 @@ static int xfrm_add_policy(struct sk_buff *skb, struct nlmsghdr *nlh,
 	 * a type XFRM_MSG_UPDPOLICY - JHS */
 	excl = nlh->nlmsg_type == XFRM_MSG_NEWPOLICY;
 	err = xfrm_policy_insert(p->dir, xp, excl);
-	xfrm_audit_policy_add(xp, err ? 0 : 1, true);
 
 	if (err) {
 		security_xfrm_policy_free(xp->security);
@@ -1770,7 +1766,6 @@ static int xfrm_get_policy(struct sk_buff *skb, struct nlmsghdr *nlh,
 					    NETLINK_CB(skb).portid);
 		}
 	} else {
-		xfrm_audit_policy_delete(xp, err ? 0 : 1, true);
 
 		if (err != 0)
 			goto out;
@@ -2056,7 +2051,6 @@ static int xfrm_add_pol_expire(struct sk_buff *skb, struct nlmsghdr *nlh,
 	err = 0;
 	if (up->hard) {
 		xfrm_policy_delete(xp, p->dir);
-		xfrm_audit_policy_delete(xp, 1, true);
 	} else {
 		// reset the timers here?
 		WARN(1, "Don't know what to do with soft policy expire\n");
@@ -2093,7 +2087,6 @@ static int xfrm_add_sa_expire(struct sk_buff *skb, struct nlmsghdr *nlh,
 
 	if (ue->hard) {
 		__xfrm_state_delete(x);
-		xfrm_audit_state_delete(x, 1, true);
 	}
 	err = 0;
 out:
